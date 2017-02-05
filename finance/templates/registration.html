@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+    <form action="{% url 'registration'%}" method="post">
+        {% csrf_token %}
+        <h3>Input Username:</h3><br/>
+        <input name="username" type="text"><br/>
+        <h3>Input Password:</h3><br/>
+        <input name="password" type="password"><br/>
+        <h3>Input Phone Number(without 8):</h3><br/>
+        <input name="phone_number" type="number"><br/>
+        <h3>Input Adress:</h3><br/>
+        <input name="adress" type="text"><br/>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

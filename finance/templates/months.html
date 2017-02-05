@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ account }} | Statistics by month</title>
+    </head>
+    <body>
+        <h3><a href="{% url 'account_view' user account %}">Имя счета - {{ account }}</a></h3>
+        <table border="1">
+            <tr>
+                <th>
+                    Месяц, Год
+                </th>
+                <th>
+                    Значение
+                </th>
+            </tr>
+            {% for each in months %}
+                <tr>
+                    <td>
+                        {{ each.month }}
+                    </td>
+                    <td>
+                        {{ each.c }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

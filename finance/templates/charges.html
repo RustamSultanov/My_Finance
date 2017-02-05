@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Все изменения счета</title>
+    </head>
+    <body>
+        <h3><a href="{% url 'account_view' user account %}">Название счета - {{ account }}</a></h3>
+        <table>
+            <tr>
+                <th>
+                    Доходы
+                </th>
+                <th>
+                    Расходы
+                </th>
+            </tr>
+            <tr>
+                <td>
+
+                    <table border="1">
+                        <tr>
+                            <th>
+                                Дата
+                            </th>
+                            <th>
+                                Значение
+                            </th>
+                        </tr>
+                        {% for each in incomes %}
+                            <tr>
+                                <td>
+                                    {{ each.date }}
+                                </td>
+                                <td>
+                                    {{ each.value }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+                </td>
+
+                <td>
+
+                    <table border="1">
+                        <tr>
+                            <th>
+                                Дата
+                            </th>
+                            <th>
+                                Значение
+                            </th>
+                        </tr>
+                        {% for each in outcomes %}
+                            <tr>
+                                <td>
+                                    {{ each.date }}
+                                </td>
+                                <td>
+                                    {{ each.value }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+                </td>
+
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Просмотр аккаунта | {{ account }}</title>
+    </head>
+    <body>
+        <h3><a href="{% url 'profile_view' user %}">Имя пользователя - {{ user }}</a></h3>
+        <h3>Название счета - {{ account }}</h3>
+        <a>Сумма - {{ account.total }}</a><br>
+        <a href="{% url 'months' user account %}">Статистика счета по месяцам</a><br>
+        <a href="{% url 'new_charge' user account %}">Внести изменение счета</a><br>
+        <a href="{% url 'all_charges' user account %}">Все изменения</a>
+    </body>
+</html>

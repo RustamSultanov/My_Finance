@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cоздать счет</title>
+    </head>
+    <body>
+    <h3><a href="{% url 'profile_view' user %}">Имя пользователя - {{ user }}</a></h3>
+        <form method="post">
+            {% csrf_token %}
+            <h3>Введите Имя Счета:</h3><br/>
+            <input name="account_holder" type="text"><br/>
+            <button type="submit">Создать</button>
+        </form>
+    </body>
+</html>

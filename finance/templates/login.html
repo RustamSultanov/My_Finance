@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в бухгалтерию</title>
+    <style>
+            .text {
+                text-align: center
+            }
+     </style>
+</head>
+<body>
+    <div class="text">   <h1>Вход в бухгалтерию</h1> </div>
+
+   <form action="{% url 'login' %}" method="post">
+       {% csrf_token %}
+        <h3>Введите имя пользователя:</h3><br/>
+        <input name="username" type="text"><br/>
+        <h3>Введите Пароль:</h3><br/>
+        <input name="password" type="password"><br/>
+      <br/>
+      <input value="Войти" type="submit">
+      <h3><a href="{% url 'registration' %}">Регистрация</a></h3>
+   </form>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+{{info}}
+</body>
+</html>

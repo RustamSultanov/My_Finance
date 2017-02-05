@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Транзакция</title>
+    </head>
+    <body>
+        <h3><a href="{% url 'account_view' user account %}">Название счета - {{ account }}</a></h3>
+        <form  method="post">
+            {% csrf_token %}
+            <h3>Транзакция</h3>
+            <h4>Дата транзакции</h4>
+            <input name="date" type="date"><br/><br/>
+            <h4>Сумма транзакции</h4>
+            <input name="value" type="number" required><br/>
+            <button type="submit">Отправить</button>
+        </form>
+        <br/>
+        <h3>
+            Результат транзакции:
+        </h3>
+            {% if form.date.value != None %}
+                Дата транзакции: {{ form.date.value }}
+            {% endif %}
+            {% if form.value.value != None %}
+                <br/>
+                Сумма транзакции: {{ form.value.value }}
+            {% endif %}
+            <h4>Ошибки</h4>
+            {% for error in form.date.errors %}
+                {% if forloop.first %}
+                    <ul>
+                {% endif %}
+                <li>{{ error }}</li>
+                {% if forloop.first %}
+                    </ul>
+                {% endif %}
+            {% empty %}
+                Отсутствуют
+            {% endfor %}
+</html>

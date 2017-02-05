@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<br xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Просмотр профиля | {{ profile.username }}</title>
+        <style>
+            .text {
+                text-align: center
+            }
+        </style>
+    </head>
+<body>
+    {% if request.user.is_authenticated %}
+    <div class="text">
+    <br><h2> Имя</h2>  <a>{{profile}}</a></br>
+    <br><h2> Телефон</h2>  <a>{{profile.phone_number}}</a></br>
+    <br><h2> Email</h2> <a>{{profile.adress}}</a></br>
+        </div>
+    {%endif %}
+    <a href="{% url 'create_account' profile %}">Создать счет</a><br>
+    <a href="{% url 'get_all_accounts' profile %}">Все счета</a><br>
+    <a href="{% url 'logout_view'%}">Выйти из системы</a><br>
+    </body>
+</html>
